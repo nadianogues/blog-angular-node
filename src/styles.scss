@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 *{
     font-family: "Montserrat";
     color: #8d8d8d;
@@ -7,3 +6,10 @@
     font-size: 14px;
     box-sizing: border-box;
 }
+
+input:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    border-bottom: 1px solid black;
+    outline: 0;
+} 
