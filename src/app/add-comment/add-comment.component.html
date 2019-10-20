@@ -1,0 +1,19 @@
+<div class="add-comment-container">
+    <div class="add-comment-meta">
+        <div class="add-comment-meta-avatar">
+            <img class="circular" src="assets/images/avatar.png">
+        </div>
+        <div class="add-comment-meta-inline">
+            <div class="add-comment-meta-author">
+                {{author}}
+            </div>
+        </div>
+        
+    </div>
+    <div class="add-comment-content">
+        <form>
+            <textarea (click)="clearTextArea($event)" (blur)="leftTextArea($event)" class="comment-textarea">Write a response...</textarea>
+            <button type="submit">Publish</button>
+        </form>
+    </div>
+</div>
