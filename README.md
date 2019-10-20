@@ -4,6 +4,10 @@ This project aims to create a generic blog with Angular, NodeJS and ExpressJS. T
 
 Note: This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
 
+## Installation
+
+Run `npm install` on the project folder in order to install all the dependencies automatically.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
