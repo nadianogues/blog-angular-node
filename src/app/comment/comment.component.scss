@@ -7,22 +7,22 @@
     margin-bottom: 30px;
 }
 
-.post-meta-avatar{
+.comment-meta-avatar{
     float:left;
     max-height: 50px;
     max-width: 50px;
 }
 
-.post-meta-avatar img{
+.comment-meta-avatar img{
     max-height: 50px;
     max-width: 50px;
 }
 
-.post-meta-inline{
+.comment-meta-inline{
     float:left;
     padding-left: 20px;
 
-    .post-meta-author{
+    .comment-meta-author{
         font-size: 16px;
         color: #007aff
     }
@@ -33,7 +33,7 @@
     background-size: 50px 50px;
 }
 
-.post-content{
+.comment-content{
     clear: both;
     outline: 0;
     word-break: break-word;
