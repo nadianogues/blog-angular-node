@@ -1,12 +1,12 @@
 .post-title{
-    font-size: 32px;
-    color: rgba(0,0,0,0.8);
+    font-size: 42px;
+    color: #000;
+    font-weight: bold;
     text-align: left;
     padding-bottom: 20px;
 }
 
 .post-container{
-    width: 80%;
     margin-top: 40px;
 }
 
@@ -41,9 +41,7 @@
     clear:both;
     text-align: justify;
     padding-top: 40px;
-
-    .text-post{
-        font-size: 18px !important;
-    }
-
+    color: rgba(0,0,0,0.8);
+    font-size: 20px;
 }
+
