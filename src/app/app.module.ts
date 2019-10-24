@@ -8,6 +8,7 @@ import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { LoginComponent } from './login/login.component';
 import { PostPageComponent } from './post-page/post-page.component';
+import { PostItemComponent } from './post-item/post-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PostPageComponent } from './post-page/post-page.component';
     CommentComponent,
     AddCommentComponent,
     LoginComponent,
-    PostPageComponent
+    PostPageComponent,
+    PostItemComponent
   ],
   imports: [
     BrowserModule,
