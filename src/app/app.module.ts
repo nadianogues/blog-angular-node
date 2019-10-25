@@ -7,6 +7,8 @@ import { PostComponent } from './post/post.component';
 import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { LoginComponent } from './login/login.component';
+import { PostPageComponent } from './post-page/post-page.component';
+import { PostItemComponent } from './post-item/post-item.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { LoginComponent } from './login/login.component';
     PostComponent,
     CommentComponent,
     AddCommentComponent,
-    LoginComponent
+    LoginComponent,
+    PostPageComponent,
+    PostItemComponent
   ],
   imports: [
     BrowserModule,
