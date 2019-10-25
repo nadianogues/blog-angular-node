@@ -8,6 +8,8 @@ import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
+import { PostPageComponent } from './post-page/post-page.component';
+import { PostItemComponent } from './post-item/post-item.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { MenuComponent } from './menu/menu.component';
     AddCommentComponent,
     LoginComponent,
     MenuComponent
+    PostPageComponent,
+    PostItemComponent
   ],
   imports: [
     BrowserModule,

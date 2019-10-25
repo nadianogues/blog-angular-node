@@ -1,31 +1,17 @@
 <div class="post-container">
-    <div class="row">
-        <div class="col-md-6 post-column-left">
-            <img class="img-blog-post img-responsive" src="{{getImageSrc()}}" />
+    <div class="post-title">
+        {{title}}
+    </div>
+    <div class="post-meta">
+        <div class="post-meta-avatar">
+            <img class="circular" src="assets/images/avatar.png">
         </div>
-        <div class="col-md-6 post-column-right">
-            <div class="post-content-container">
-                <div>
-                    <div class="post-meta">
-                        <span class="post-meta-author">by {{author}}</span>
-                        <span class="post-meta-date">{{date}}</span>
-                    </div>
-                    <div class="post-title">
-                        <a href="#">
-                            <h2>
-                                {{title}}
-                            </h2>
-                        </a>
-                    </div>
-                    <div class="post-content">
-                        <ng-content></ng-content>
-                    </div>
-                    <div class="post-meta-comments">
-                        {{comments}} comments
-                    </div>
-                </div>
-            </div>
+        <div class="post-meta-inline">
+            <div class="post-meta-author">{{author}}</div>
+            <div class="post-meta-date">{{date}}</div>
         </div>
     </div>
-    
+    <div class="post-content">
+        <ng-content></ng-content>
+    </div>
 </div>
