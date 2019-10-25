@@ -1,8 +1,6 @@
-<div class="container">
-	<nav>
-		<!-- Button to open the modal login form -->
-		<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" routerLink="/login" routerLinkActive="active">Login</button>
-		<a routerLink="/post">Post page</a>
-	</nav>
+<div>
+	<app-menu></app-menu>
+	<app-login></app-login>
+
 	<router-outlet></router-outlet>
 </div>

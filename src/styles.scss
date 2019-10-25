@@ -11,3 +11,13 @@ input:focus{
     border-bottom: 1px solid black;
     outline: 0;
 } 
+
+button
+{
+    background-color: #38a9ac;
+}
+
+a:focus, a:hover
+{
+    text-decoration: none;
+}
