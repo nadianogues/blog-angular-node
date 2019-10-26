@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostItemComponent } from './post-item/post-item.component';
+import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { PostItemComponent } from './post-item/post-item.component';
     CommentComponent,
     AddCommentComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
     PostPageComponent,
-    PostItemComponent
+    PostItemComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
