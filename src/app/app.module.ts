@@ -18,7 +18,7 @@ import { PostItemComponent } from './post-item/post-item.component';
     CommentComponent,
     AddCommentComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
     PostPageComponent,
     PostItemComponent
   ],
