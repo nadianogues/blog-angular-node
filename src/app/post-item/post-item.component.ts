@@ -14,7 +14,7 @@ export class PostItemComponent implements OnInit {
   randomValue: string;
 
   getImageSrc(){
-    return "https://picsum.photos/1024/777/?random=" + this.randomValue;
+    return "https://picsum.photos/1024/400/?random=" + this.randomValue;
   }
 
   constructor() { }
