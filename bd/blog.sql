@@ -4,7 +4,7 @@ USE `blog`;
 --
 -- Host: localhost    Database: blog
 -- ------------------------------------------------------
--- Server version	5.7.27-0ubuntu0.18.04.1
+-- Server version	5.7.27-0ubuntu0.19.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,13 +26,15 @@ DROP TABLE IF EXISTS `comment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) NOT NULL,
-  `body` text NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `content` text NOT NULL,
+  `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
+  `comment_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `comment_fk_post` (`post_id`),
-  CONSTRAINT `comment_fk_post` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`)
+  KEY `comment_fk_user_idx` (`user_id`),
+  CONSTRAINT `comment_fk_post` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `comment_fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -57,6 +59,7 @@ CREATE TABLE `post` (
   `title` varchar(50) NOT NULL,
   `body` text NOT NULL,
   `user_id` int(11) NOT NULL,
+  `post_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `post_fk_user` (`user_id`),
   CONSTRAINT `post_fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
@@ -84,6 +87,7 @@ CREATE TABLE `user` (
   `name` varchar(100) NOT NULL,
   `username` varchar(45) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -106,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-13 15:37:03
+-- Dump completed on 2019-10-29 20:04:23
