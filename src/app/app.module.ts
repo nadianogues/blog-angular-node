@@ -22,7 +22,7 @@ import { HeroComponent } from './hero/hero.component';
     MenuComponent,
     PostPageComponent,
     PostItemComponent,
-    HeroComponent
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
