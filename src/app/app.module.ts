@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './about/about.component';
     MenuComponent,
     PostPageComponent,
     PostItemComponent,
-    AboutComponent
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
