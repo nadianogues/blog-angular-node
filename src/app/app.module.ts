@@ -10,7 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostItemComponent } from './post-item/post-item.component';
-import { HeroComponent } from './hero/hero.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HeroComponent } from './hero/hero.component';
     MenuComponent,
     PostPageComponent,
     PostItemComponent,
-    HeroComponent,
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

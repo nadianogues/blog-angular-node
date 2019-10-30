@@ -5,7 +5,7 @@
                 <div class="row align-items-center no-gutters">
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo-img">
-                            <a href="index.html" class='format-link'>
+                            <a routerLink="" class='format-link'>
                                 <img class="format-logo-img" src="assets/images/logo.png">
                             </a>
                         </div>
@@ -15,23 +15,21 @@
                             <nav>
                                 <ul id="navigation" class="format-menu">
                                     <li class="format-item-menu">
-                                        <a class="active format-link" href="index.html">Posts</a>
+                                        <a routerLink="" class="active format-link">Posts</a>
                                     </li>
                                     <li class="format-item-menu">
-                                        <a href="about.html" class='format-link'>About</a>
+                                        <a routerLink="/about" class='format-link'>About</a>
                                     </li>
-                                    <li class="format-item-menu">
-                                        <a href="contact.html" class='format-link'>Contact</a>
-                                    </li>
+                                    <!--<li class="format-item-menu">
+                                        <a routerLink="/contact" class='format-link'>Contact</a>
+                                    </li>-->
                                 </ul>
                             </nav>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                         <div class="log_chat_area d-flex align-items-center">
-                            <a href="#login-form" class="login popup-with-form format-link">
-                                <button onclick="document.getElementById('id01').style.display='block'" class="format-button-login">Login</button>
-                            </a>
+                            <button onclick="document.getElementById('id01').style.display='block'" class="login popup-with-form format-link format-button-login">Login</button>
                         </div>
                     </div>
                     <div class="col-12">
@@ -41,4 +39,5 @@
             </div>
         </div>
     </div>
+    <app-login></app-login>
 </header>
