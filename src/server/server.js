@@ -25,7 +25,7 @@ app.get('/posts/:numberPosts', (req, res) => {
         ordered by post_date in ascending order
     */
     connection.query('SELECT * FROM post ORDER BY post_date ASC LIMIT ?', 
-                     [parseInt(req.param('numberPosts'))], function (error, results, fields) {
+                     [parseInt(req.params['numberPosts'])], function (error, results, fields) {
         if (error) throw error;
         // Connected without erros
         res.send(results)
