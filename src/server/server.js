@@ -28,7 +28,7 @@ app.get('/posts/:numberPosts', (req, res) => {
                      [parseInt(req.params['numberPosts'])], function (error, results, fields) {
         if (error) throw error;
         // Connected without erros
-        res.send(results)
+        res.json({error: false, message: `List with ${req.params['numberPosts']} post(s)`, data: results})
     })
 })
 
@@ -40,7 +40,7 @@ app.get('/posts', (req, res) => {
     connection.query('SELECT * FROM post ORDER BY post_date ASC', function (error, results, fields) {
         if (error) throw error;
         // Connected without erros
-        res.send(results)
+        res.json({error: false, message: "List with all posts", data: results})
     })
 })
 
