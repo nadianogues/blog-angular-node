@@ -13,6 +13,7 @@ import { PostItemComponent } from './post-item/post-item.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { HeroComponent } from './hero/hero.component';
+import { BackgroundMenuComponent } from './background-menu/background-menu.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HeroComponent } from './hero/hero.component';
     PostItemComponent,
     AboutComponent,
     HomeComponent,
-    HeroComponent
+    HeroComponent,
+    BackgroundMenuComponent
   ],
   imports: [
     BrowserModule,
