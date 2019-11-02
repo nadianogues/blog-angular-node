@@ -12,6 +12,8 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { HeroComponent } from './hero/hero.component';
+import { BackgroundMenuComponent } from './background-menu/background-menu.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HomeComponent } from './home/home.component';
     PostPageComponent,
     PostItemComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    HeroComponent,
+    BackgroundMenuComponent
   ],
   imports: [
     BrowserModule,
