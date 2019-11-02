@@ -1,26 +1,13 @@
 <div class="post-container">
-    <post title="Essential Math for Data Science" author="Rodrigo Araújo Marinho Franco" date="Aug 8, 2018">
-            <p>
-                Using high-level frameworks like Keras, TensorFlow or PyTorch allows us to build very complex models quickly. However, it is worth taking the time to look inside and understand underlying concepts. Not so long ago I published an article, explaining — in a simple way — how neural nets work. However, it was highly theoretical post, dedicated primarily to math, which is the source of NN superpower. From the beginning I was planning to follow-up this topic in a more practical way. This time we will try to utilize our knowledge and build a fully operational neural network using only NumPy. Finally, we will also test our model — solve simple classification problem and compare its performance with NN built with Keras.
-            </p>
-            <p>
-                Note: Thanks to the Jakukyo Friel courtesy, you can also read this article in Chinese. Obviously, today’s post will consist in large part of code snippets written in Python. I hope, however, that the reading will not be too boring. :) You will also find short comments in places that I consider to be not clear or worthy of attention. As usual, all the source code is available on my GitHub.
-            </p>
+    <post [title]="post.title" [author]="post.author" [date]="post.date">
+        {{ post.content }}
     </post>
 </div>
+
 <div class="post-comments">
+    <!-- TODO: display dynamically the name of the author based on user logged -->
     <add-comment author="rodrigoamf"></add-comment>
-    <comment author="nadianogues" date="Oct 1 2018">
-        Thanks for sharing the knowledge!
+    <comment [author]="comment.author" [date]="comment.date" *ngFor="let comment of comments">
+        {{ comment.content }}
     </comment>
-    <comment author="mateus" date="Oct 2 2018">
-        What about the tensorflow 2.0 with keras integrated on tf.keras?
-    </comment>
-    <comment author="john" date="Oct 1 2018">
-            Thank you Piotr for this great article! It is very nicely explained and coded.
-    
-            I like how you created the nn_architecture using a dictionary, reminds of Tensorflow (each output connects to next input and have to match).
-            
-            I do have one quesiton, regarding the bias, why is the shape always (layer_output_size, 1)?
-    </comment> 
 </div>

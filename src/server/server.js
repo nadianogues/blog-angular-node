@@ -39,7 +39,7 @@ app.get('/posts/:numberPosts', (req, res) => {
         ordered by post_date in ascending order
     */
     let query = `
-        SELECT p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author, 
+        SELECT p.id, p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author, 
         (
             SELECT COUNT(comment.post_id) FROM post 
             LEFT JOIN comment ON comment.post_id = post.id
@@ -49,13 +49,55 @@ app.get('/posts/:numberPosts', (req, res) => {
         FROM post p
         INNER JOIN user u ON u.id = p.user_id
         ORDER BY post_date DESC LIMIT ?
-    `;
+    `
     connection.query(query, [parseInt(req.params['numberPosts'])], function (error, results, fields) {
         if (error) throw error;
         // Connected without erros
         res.json({error: false, message: `List with ${req.params['numberPosts']} post(s)`, data: results})
     })
 })
+
+app.get('/post/:id', (req, res) => {
+    /*
+        Define a route for the API who returns data from
+        a specific post with the id received as a argument
+    */
+    let query = `
+        SELECT p.id, p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author
+        FROM post p
+        INNER JOIN user u ON u.id = p.user_id
+        WHERE p.id = ?
+    `
+    connection.query(query, [parseInt(req.params['id'])], function (error, results, fields) {
+        if (error) throw error;
+        // Connected without erros
+        res.json({error: false, message: `Data from post with id ${req.params['id']}`, data: results})
+    })
+})
+
+app.get('/comments/:postId', (req, res) => {
+    /*
+        Define a route for the API who returns a list with
+        the comments from a specific post with the id received
+        as a argument
+    */
+    let query = `
+        SELECT
+            user.id as author_id, user.name as author, comment.content, date_format(comment.comment_date, '%M %d %Y, %H:%i') as date
+        FROM
+            comment
+        INNER JOIN user ON
+            user.id = comment.user_id
+        WHERE comment.post_id = ?
+    `
+    connection.query(query, [parseInt(req.params['postId'])], function (error, results, fields) {
+        if (error) throw error;
+        // Connected without erros
+        res.json({error: false, message: `List with comments from post with id ${req.params['postId']}`, data: results})
+    })
+})
+
+
 
 app.use(function (req, res, next) {
     /*
