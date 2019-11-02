@@ -1,0 +1,81 @@
+<div class="container">
+	<div class="container-contact">
+		<div class="wrap-contact">
+			<form class="contact-form validate-form">
+				<span class="contact-form-title">
+					Contact Us
+				</span>
+
+				<label class="label-input" for="first-name">Tell us your name *</label>
+				<div class="wrap-input rs1-wrap-input validate-input" data-validate="Type first name">
+					<input id="first-name" class="input" type="text" name="first-name" placeholder="First name">
+					<span class="focus-input"></span>
+				</div>
+				<div class="wrap-input rs2-wrap-input validate-input" data-validate="Type last name">
+					<input class="input" type="text" name="last-name" placeholder="Last name">
+					<span class="focus-input"></span>
+				</div>
+
+				<label class="label-input" for="email">Enter your email *</label>
+				<div class="wrap-input validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input id="email" class="input" type="text" name="email" placeholder="Eg. example@email.com">
+					<span class="focus-input"></span>
+				</div>
+
+				<label class="label-input" for="message">Message *</label>
+				<div class="wrap-input validate-input" data-validate = "Message is required">
+					<textarea id="message" class="input" name="message" placeholder="Write us a message"></textarea>
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="container-contact-form-btn">
+					<button class="contact-form-btn">
+						Send Message
+					</button>
+				</div>
+			</form>
+
+			<div class="contact-more flex-col-c-m">
+				<span class="contact-more-title">
+						Our Contact
+				</span>
+				
+				<div class="row">
+					<div class="col-md-12 content-contact">
+						<img class="img-blog-contact img-responsive" src="assets/images/nadia.jpg"/>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-md-12 content-contact">
+						<div class="logos">
+							<button (click)="redirectLinkedinNadia($event)" class="format-button">
+								<img class="img-linkedin img-responsive" src="assets/images/linkedin.png"/>
+							</button>
+							<button (click)="redirectGitHubNadia($event)" class="format-button">
+								<img class="img-github img-responsive" src="assets/images/github.png"/>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12 content-contact">
+						<img class="img-blog-contact img-responsive" src="assets/images/rodrigo.jpg"/>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-md-12 content-contact">
+						<div class="logos">
+							<button (click)="redirectLinkedinRodrigo($event)" class="format-button">
+								<img class="img-linkedin img-responsive" src="assets/images/linkedin.png"/>
+							</button>
+							<button (click)="redirectGitHubRodrigo($event)" class="format-button">
+								<img class="img-github img-responsive" src="assets/images/github.png"/>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
