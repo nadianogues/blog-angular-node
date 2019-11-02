@@ -13,4 +13,11 @@ export class PostsService {
             .toPromise()
             .then((answer : any) => answer.data)
     }
+
+    public getPost(id: number): Promise<Post> {
+        // Efetua uma requisição http
+        return this.http.get("http://localhost:3000/post/" + id)
+            .toPromise()
+            .then((answer : any) => answer.data)
+    }
 }

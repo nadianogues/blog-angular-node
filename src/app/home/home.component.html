@@ -1,6 +1,8 @@
 <app-hero></app-hero>
 <div class="format-post-item container" *ngFor="let post of posts">
-    <post-item [author]="post.author" [date]="post.date" [title]="post.title" [comments]="post.numberComments">
-            {{post.content}}
-    </post-item>
+    <a [routerLink]="['/post', post.id]">
+        <post-item [author]="post.author" [date]="post.date" [title]="post.title" [comments]="post.numberComments">
+                {{post.content}}
+        </post-item>
+    </a>
 </div>

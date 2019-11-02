@@ -39,7 +39,7 @@ app.get('/posts/:numberPosts', (req, res) => {
         ordered by post_date in ascending order
     */
     let query = `
-        SELECT p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author, 
+        SELECT p.id, p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author, 
         (
             SELECT COUNT(comment.post_id) FROM post 
             LEFT JOIN comment ON comment.post_id = post.id
@@ -54,6 +54,20 @@ app.get('/posts/:numberPosts', (req, res) => {
         if (error) throw error;
         // Connected without erros
         res.json({error: false, message: `List with ${req.params['numberPosts']} post(s)`, data: results})
+    })
+})
+
+app.get('/post/:id', (req, res) => {
+    let query = `
+        SELECT p.id, p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author
+        FROM post p
+        INNER JOIN user u ON u.id = p.user_id
+        WHERE p.id = ?
+    `
+    connection.query(query, [parseInt(req.params['id'])], function (error, results, fields) {
+        if (error) throw error;
+        // Connected without erros
+        res.json({error: false, message: `Data from post with id ${req.params['id']}`, data: results})
     })
 })
 
