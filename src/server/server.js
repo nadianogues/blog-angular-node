@@ -41,10 +41,10 @@ app.get('/posts/:numberPosts', (req, res) => {
     let query = `
         SELECT p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author, 
         (
-            SELECT COUNT(comment.user_id) as numberComments FROM user
-            LEFT JOIN comment ON comment.user_id = user.id
-            GROUP BY user.id
-            HAVING user.id = p.user_id
+            SELECT COUNT(comment.post_id) FROM post 
+            LEFT JOIN comment ON comment.post_id = post.id
+            GROUP BY post.id
+            HAVING post.id = p.id
         ) as numberComments
         FROM post p
         INNER JOIN user u ON u.id = p.user_id
