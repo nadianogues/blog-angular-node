@@ -18,29 +18,42 @@ let connection = mysql.createConnection({
   database : 'blog'
 })
 
+app.use(function (req, res, next) {
+    // Host allowed to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+
+    // Request methods allowed
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers allowed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Pass to next layer of middleware
+    next();
+});
+
 // Define API response routes
 app.get('/posts/:numberPosts', (req, res) => {
     /*
         Define a route for the API who returns N posts
         ordered by post_date in ascending order
     */
-    connection.query('SELECT * FROM post ORDER BY post_date ASC LIMIT ?', 
-                     [parseInt(req.params['numberPosts'])], function (error, results, fields) {
+    let query = `
+        SELECT p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author, 
+        (
+            SELECT COUNT(comment.user_id) as numberComments FROM user
+            LEFT JOIN comment ON comment.user_id = user.id
+            GROUP BY user.id
+            HAVING user.id = p.user_id
+        ) as numberComments
+        FROM post p
+        INNER JOIN user u ON u.id = p.user_id
+        ORDER BY post_date DESC LIMIT ?
+    `;
+    connection.query(query, [parseInt(req.params['numberPosts'])], function (error, results, fields) {
         if (error) throw error;
         // Connected without erros
         res.json({error: false, message: `List with ${req.params['numberPosts']} post(s)`, data: results})
-    })
-})
-
-app.get('/posts', (req, res) => {
-    /*
-        Define a route for the API who returns all the posts
-        ordered by post_date in ascending order
-    */
-    connection.query('SELECT * FROM post ORDER BY post_date ASC', function (error, results, fields) {
-        if (error) throw error;
-        // Connected without erros
-        res.json({error: false, message: "List with all posts", data: results})
     })
 })
 

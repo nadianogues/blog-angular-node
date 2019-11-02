@@ -16,7 +16,10 @@ export class HomeComponent implements OnInit {
   constructor(private postsService: PostsService) { }
 
   ngOnInit() {
-    this.posts = this.postsService.getPosts()
+    this.postsService.getLastTenPosts()
+      .then(( posts: Post[] ) => {
+        this.posts = posts
+      })
   }
 
 }
