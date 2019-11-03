@@ -14,6 +14,7 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 import { HeroComponent } from './hero/hero.component';
 import { BackgroundMenuComponent } from './background-menu/background-menu.component';
 
@@ -29,6 +30,7 @@ import { BackgroundMenuComponent } from './background-menu/background-menu.compo
     PostItemComponent,
     AboutComponent,
     HomeComponent,
+    ContactComponent,
     HeroComponent,
     BackgroundMenuComponent,
   ],
