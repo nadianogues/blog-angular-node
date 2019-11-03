@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
@@ -13,6 +15,8 @@ import { PostItemComponent } from './post-item/post-item.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { HeroComponent } from './hero/hero.component';
+import { BackgroundMenuComponent } from './background-menu/background-menu.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +30,15 @@ import { ContactComponent } from './contact/contact.component';
     PostItemComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    HeroComponent,
+    BackgroundMenuComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]
