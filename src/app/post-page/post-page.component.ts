@@ -24,13 +24,14 @@ export class PostPageComponent implements OnInit {
     this.post = new Post()
     this.comments = new Array<Comment>()
     this.id = parseInt(this.activatedRoute.snapshot.paramMap.get("id"))
+
     this.postsService.getPost(this.id)
-      .then(( post: Post ) => {
-        this.post = post[0]
+      .subscribe(( post: Post ) => {
+        this.post = post
       })
 
     this.postsService.getCommentsFromPost(this.id)
-      .then(( comments: Comment[] ) => {
+      .subscribe(( comments: Comment[] ) => {
         this.comments = comments
       })
   }

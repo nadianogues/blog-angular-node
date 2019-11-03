@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.postsService.getLastTenPosts()
-      .then(( posts: Post[] ) => {
+      .subscribe(( posts: Post[] ) => {
         this.posts = posts
       })
   }

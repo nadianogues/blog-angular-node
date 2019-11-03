@@ -4,7 +4,6 @@ import { User } from './shared/user.model'
 
 @Injectable()
 export class LoginService implements OnInit {
-
     public user: User
     public isLogged: boolean
 
@@ -17,6 +16,9 @@ export class LoginService implements OnInit {
 
     public login(username: string, password: string): void{
         // HTTP request
+        //let headers: HttpHeaders = new HttpHeaders()
+
+        //headers.append('Content-type', 'application/json')
     }
 
     public logout(): void{
