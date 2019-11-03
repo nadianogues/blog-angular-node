@@ -98,8 +98,8 @@ app.get('/comments/:postId', (req, res) => {
 })
 
 app.get('/login/', (req, res) => {
-    let username = req.param('username')
-    let password = req.param('password')
+    let username = req.params['username']
+    let password = req.params['password']
     
     let query = "SELECT * FROM user WHERE username = '?' and password = '?';"
 
