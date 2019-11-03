@@ -126,7 +126,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Dieter Bohn','dieterbohn','dieterbohn@outlook.com',1,''),(2,'Jay Peters','jaypeters','jaypeters@outlook.com',1,''),(3,'Jon Porter','jonPorty','jonPorter@outlook.com',0,''),(4,'Rodrigo Franco','rodrigoamf','rodrigoamf@outlook.com',1,''),(5,'Nadia Nogues Franco','nadianogues','nadianogues@outlook.com',1,''),(6,'Helena Nogues Franco','helenanf','helenanf@outlook.com',1,'');
+INSERT INTO `user` VALUES (1,'Dieter Bohn','dieterbohn','dieterbohn@outlook.com',1,'123'),(2,'Jay Peters','jaypeters','jaypeters@outlook.com',1,'123'),(3,'Jon Porter','jonPorty','jonPorter@outlook.com',0,'123'),(4,'Rodrigo Franco','rodrigoamf','rodrigoamf@outlook.com',1,'123'),(5,'Nadia Nogues Franco','nadianogues','nadianogues@outlook.com',1,'123'),(6,'Helena Nogues Franco','helenanf','helenanf@outlook.com',1,'123');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -139,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-03 19:06:26
+-- Dump completed on 2019-11-03 19:14:40
