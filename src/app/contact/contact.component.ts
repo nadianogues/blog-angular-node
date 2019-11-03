@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service'
+
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  providers: [ LoginService ]
 })
+
 export class ContactComponent implements OnInit {
 
-  constructor() 
-  { 
-
-  }
+  constructor(private loginService: LoginService) { }
 
   redirectLinkedinNadia($event){    
     window.open("https://www.linkedin.com/in/nadianoguesalmeida/");
