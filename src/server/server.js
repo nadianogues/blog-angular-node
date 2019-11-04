@@ -103,7 +103,7 @@ app.post('/contact/', (req, res) => {
 
     connection.query(query, [name, email, message], function (error, results, fields) {
         if (error) throw error;
-        res.json({error: false, message: "User with the username and password getted by req.params"})
+        res.json({error: false, message: "Added contact in databases"})
     })
 })
 

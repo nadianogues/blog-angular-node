@@ -44,7 +44,7 @@ export class ContactComponent implements OnInit {
         }
         else
         {
-          alert("ERROR!!!!")
+          alert("Message isn't sent")
         }
       }
     )
