@@ -6,6 +6,7 @@
 // Imports
 const express = require('express')
 const mysql = require('mysql')
+const bodyParser = require('body-parser')
 
 const app = express()
 const port = 3000
@@ -18,19 +19,15 @@ let connection = mysql.createConnection({
   database : 'blog'
 })
 
-app.use(function (req, res, next) {
-    // Host allowed to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-    // Request methods allowed
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers allowed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Pass to next layer of middleware
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Credentials", "true");
     next();
-});
+  });
 
 // Define API response routes
 app.get('/posts/:numberPosts', (req, res) => {
@@ -97,7 +94,18 @@ app.get('/comments/:postId', (req, res) => {
     })
 })
 
+app.post('/contact/', (req, res) => {
+    let name = req.body.name
+    let email = req.body.email
+    let message = req.body.message
 
+    let query = "INSERT INTO contact (name, email, message) VALUES (?, ?, ?)"
+
+    connection.query(query, [name, email, message], function (error, results, fields) {
+        if (error) throw error;
+        res.json({error: false, message: "Added contact in databases"})
+    })
+})
 
 app.use(function (req, res, next) {
     /*
