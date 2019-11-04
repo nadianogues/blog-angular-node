@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { HeroComponent } from './hero/hero.component';
 import { BackgroundMenuComponent } from './background-menu/background-menu.component';
+import { NewPostComponent } from './new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BackgroundMenuComponent } from './background-menu/background-menu.compo
     ContactComponent,
     HeroComponent,
     BackgroundMenuComponent,
+    NewPostComponent,
   ],
   imports: [
     BrowserModule,
