@@ -10,7 +10,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xl-7 col-lg-7">
+                    <div class="col-xl-6 col-lg-6">
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation" class="format-menu">
@@ -27,9 +27,15 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                    <div class="col-xl-4 col-lg-4 d-none d-lg-block">
                         <div class="log_chat_area d-flex align-items-center">
-                            <button onclick="document.getElementById('id01').style.display='block'" class="login popup-with-form format-link format-button-login">Login</button>
+                            <span class="text-logged" *ngIf="loginService.isLogged">
+                                {{ loginService.user.username }}
+                            </span>
+                            <button *ngIf="!loginService.isLogged; else dontShowLogin" onclick="document.getElementById('id01').style.display='block'" class="login popup-with-form format-link format-button-login">Login</button>
+                            <ng-template #dontShowLogin>
+                                <button class="login popup-with-form format-link format-button-login" (click)="logout()">Logout</button>
+                            </ng-template>
                         </div>
                     </div>
                     <div class="col-12">
@@ -39,5 +45,6 @@
             </div>
         </div>
     </div>
-    <app-login></app-login>
+    <app-login *ngIf="!loginService.isLogged"></app-login>
+
 </header>

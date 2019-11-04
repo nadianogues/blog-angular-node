@@ -98,9 +98,6 @@ app.post('/login/', (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
-    console.log(req.params['username'] + " " + req.params['passsword'])
-    console.log(username + " " + password)
-
     let query = "SELECT * FROM user WHERE username = ? and password = ?"
 
     connection.query(query, [username, password], function (error, results, fields) {

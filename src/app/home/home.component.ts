@@ -23,15 +23,6 @@ export class HomeComponent implements OnInit {
       .subscribe(( posts: Post[] ) => {
         this.posts = posts
       })
-
-    /*this.loginService.login("rodrigoamf", "123")
-        .subscribe(( user: User) => {
-            if(user === undefined) return;
-            
-            this.loginService.user = user
-            this.loginService.isLogged = true
-        })
-        */
   }
 
 }
