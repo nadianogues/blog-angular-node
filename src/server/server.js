@@ -106,6 +106,19 @@ app.post('/login/', (req, res) => {
     })
 })
 
+app.post('/contact/', (req, res) => {
+    let name = req.body.name
+    let email = req.body.email
+    let message = req.body.message
+
+    let query = "INSERT INTO contact (name, email, message) VALUES (?, ?, ?)"
+
+    connection.query(query, [name, email, message], function (error, results, fields) {
+        if (error) throw error;
+        res.json({error: false, message: "Added contact in databases"})
+    })
+})
+
 app.use(function (req, res, next) {
     /*
         Define a mensage in case of error 404 (when trying to access a route
