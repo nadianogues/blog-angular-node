@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core'
 import { Post } from './shared/post.model'
 import { Comment } from './shared/comment.model'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { retry, map } from 'rxjs/operators';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class PostsService {
             Get data from the last ten posts on the database
 
             Return:
-                Promise with a list with ten post objects
+                Observable with a list with ten post objects
         */
         return this.http.get<Post[]>("http://localhost:3000/posts/10")
             .pipe(
@@ -33,7 +33,7 @@ export class PostsService {
             Args:
                 id - Id of the post who the data will be getted
             Return:
-                Promise with a list with ten post objects
+                Observable with a post object
         */
         return this.http.get<Post>("http://localhost:3000/post/" + id)
             .pipe(
@@ -42,9 +42,6 @@ export class PostsService {
                     return answer.data[0]   
                 })
             )
-        /*return this.http.get("http://localhost:3000/post/" + id)
-            .toPromise()
-            .then((answer : any) => answer.data)*/
     }
 
     public getCommentsFromPost(post_id: number): Observable<Comment[]> {
@@ -54,7 +51,7 @@ export class PostsService {
             Args:
                 post_id - Id of the post who the comments will be getted
             Return:
-                Promise with a list of the comments
+                Observable with a list of the comments from a post
         */
         return this.http.get<Comment[]>("http://localhost:3000/comments/" + post_id)
             .pipe(

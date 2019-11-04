@@ -6,6 +6,7 @@
 // Imports
 const express = require('express')
 const mysql = require('mysql')
+const bodyParser = require('body-parser')
 
 const app = express()
 const port = 3000
@@ -18,19 +19,15 @@ let connection = mysql.createConnection({
   database : 'blog'
 })
 
-app.use(function (req, res, next) {
-    // Host allowed to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-    // Request methods allowed
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers allowed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Pass to next layer of middleware
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Credentials", "true");
     next();
-});
+  });
 
 // Define API response routes
 app.get('/posts/:numberPosts', (req, res) => {
@@ -97,11 +94,14 @@ app.get('/comments/:postId', (req, res) => {
     })
 })
 
-app.get('/login/', (req, res) => {
-    let username = req.params['username']
-    let password = req.params['password']
-    
-    let query = "SELECT * FROM user WHERE username = '?' and password = '?';"
+app.post('/login/', (req, res) => {
+    let username = req.body.username
+    let password = req.body.password
+
+    console.log(req.params['username'] + " " + req.params['passsword'])
+    console.log(username + " " + password)
+
+    let query = "SELECT * FROM user WHERE username = ? and password = ?"
 
     connection.query(query, [username, password], function (error, results, fields) {
         if (error) throw error;

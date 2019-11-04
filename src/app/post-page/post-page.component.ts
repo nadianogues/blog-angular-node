@@ -9,7 +9,7 @@ import { LoginService } from '../login.service'
   selector: 'app-post-page',
   templateUrl: './post-page.component.html',
   styleUrls: ['./post-page.component.scss'],
-  providers: [ PostsService, LoginService ]
+  providers: [ PostsService ]
 })
 
 export class PostPageComponent implements OnInit {
