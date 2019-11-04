@@ -12,7 +12,7 @@ import { Contact } from '../shared/contact.model'
 })
 export class ContactComponent implements OnInit {
 
-  public formulario:FormGroup = new FormGroup
+  public form:FormGroup = new FormGroup
   (
     {
       /*
@@ -32,8 +32,8 @@ export class ContactComponent implements OnInit {
 
   public sendMessage(): void
   {
-    console.log(this.formulario)
-    let contact: Contact = new Contact(this.formulario.value.name, this.formulario.value.email, this.formulario.value.message)
+    console.log(this.form)
+    let contact: Contact = new Contact(this.form.value.name, this.form.value.email, this.form.value.message)
 
     this.contactService.sendMessage(contact).subscribe(
       (error:boolean)=>
@@ -48,7 +48,6 @@ export class ContactComponent implements OnInit {
         }
       }
     )
-
   }
 
   redirectLinkedinNadia($event){    
@@ -67,9 +66,6 @@ export class ContactComponent implements OnInit {
     window.open("https://github.com/rodrigoAMF");
   } 
 
-  ngOnInit() 
-  {
-    
-  }
+  ngOnInit() { }
 
 }

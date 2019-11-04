@@ -107,6 +107,19 @@ app.post('/contact/', (req, res) => {
     })
 })
 
+app.post('/new-post/', (req, res) => {
+    let postTitle = req.body.title
+    let postContent = req.body.content
+    let author = req.body.author
+
+    let query = "INSERT INTO post (title, body, user_id, post_date) VALUES (?, ?, ?, now())"
+
+    connection.query(query, [postTitle, postContent, author], function (error, results, fields) {
+        if (error) throw error;
+        res.json({error: false, message: "Added new post in databases"})
+    })
+})
+
 app.use(function (req, res, next) {
     /*
         Define a mensage in case of error 404 (when trying to access a route
