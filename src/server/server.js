@@ -94,6 +94,18 @@ app.get('/comments/:postId', (req, res) => {
     })
 })
 
+app.post('/login/', (req, res) => {
+    let username = req.body.username
+    let password = req.body.password
+
+    let query = "SELECT * FROM user WHERE username = ? and password = ?"
+
+    connection.query(query, [username, password], function (error, results, fields) {
+        if (error) throw error;
+        res.json({error: false, message: "User with the username and password getted by req.params", data: results})
+    })
+})
+
 app.post('/contact/', (req, res) => {
     let name = req.body.name
     let email = req.body.email

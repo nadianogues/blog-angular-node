@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 import { PostsService} from '../posts.service'
 import { Post } from '../shared/post.model'
 import { Comment } from '../shared/comment.model'
+import { LoginService } from '../login.service'
 
 @Component({
   selector: 'app-post-page',
@@ -16,19 +17,21 @@ export class PostPageComponent implements OnInit {
   public post: Post
   public comments: Comment[]
 
-  constructor(private activatedRoute: ActivatedRoute, private postsService: PostsService) { }
+  constructor(private activatedRoute: ActivatedRoute, private postsService: PostsService,
+              private loginService: LoginService) { }
 
   ngOnInit() {
     this.post = new Post()
     this.comments = new Array<Comment>()
     this.id = parseInt(this.activatedRoute.snapshot.paramMap.get("id"))
+
     this.postsService.getPost(this.id)
-      .then(( post: Post ) => {
-        this.post = post[0]
+      .subscribe(( post: Post ) => {
+        this.post = post
       })
 
     this.postsService.getCommentsFromPost(this.id)
-      .then(( comments: Comment[] ) => {
+      .subscribe(( comments: Comment[] ) => {
         this.comments = comments
       })
   }
