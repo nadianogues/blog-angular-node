@@ -1,1 +1,32 @@
-<p>new-post works!</p>
+<app-background-menu></app-background-menu>
+
+<div class="container">
+	<div class="container-contact">
+		<div class="wrap-contact">
+			<form class="contact-form validate-form">
+				<span class="contact-form-title">
+					Submit your new post
+				</span>
+
+				<label class="label-input" for="email">Post Title *</label>
+				<div class="wrap-input validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input id="email" class="input" type="text">
+					<span class="focus-input"></span>
+				</div>
+
+				<label class="label-input" for="message">Content Post *</label>
+				<div class="wrap-input validate-input" data-validate = "Message is required">
+					<textarea id="message" class="input"></textarea>
+					<span class="focus-input"></span>
+				</div>
+
+				<div class="container-contact-form-btn">
+					<button class="contact-form-btn">
+						Submit
+					</button>
+				</div>
+            </form>
+        </div>
+    </div>
+</div>
+        
