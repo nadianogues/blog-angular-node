@@ -25,38 +25,35 @@ export class LoginComponent implements OnInit {
     }
   )
 
-    constructor(private loginService: LoginService) 
-    {
-    // Get the modal
-    var modal = document.getElementById('id01');
+  constructor(private loginService: LoginService) 
+  {
+      // Get the modal
+      var modal = document.getElementById('id01');
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) 
-    {
-        if (event.target == modal) 
-        {
-            modal.style.display = "none";
-        }
-    }
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) 
+      {
+          if (event.target == modal) 
+          {
+              modal.style.display = "none";
+          }
+      }
    }
 
-    public tryToLogin(): void
-    {
-        //let contact: Contact = new Contact(this.formulario.value.name, this.formulario.value.email, this.formulario.value.message)
-
-        this.loginService.login(this.login.value.username, this.login.value.password)
-        .subscribe(( user: User) => {
-            if(user === undefined){
-                alert("Failed to login! Username or password incorrect!")
-                return
-            };
-            
-            this.loginService.user = user
-            this.loginService.isLogged = true
-        })
-    }
-
-  ngOnInit() {
+  public tryToLogin(): void
+  {
+      this.loginService.login(this.login.value.username, this.login.value.password)
+      .subscribe(( user: User) => {
+          if(user === undefined){
+              alert("Failed to login! Username or password incorrect!")
+              return
+          };
+          
+          this.loginService.user = user
+          this.loginService.isLogged = true
+      })
   }
+
+  ngOnInit() {}
 
 }

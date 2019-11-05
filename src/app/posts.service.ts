@@ -66,9 +66,6 @@ export class PostsService {
 
     public sendMessage(post: Post): Observable<boolean>
     {
-        console.log(post.title)
-        console.log(post.content)
-        console.log(this.loginService.user.id)
         const body = new HttpParams()
         .set('title', post.title)
         .set('content', post.content)

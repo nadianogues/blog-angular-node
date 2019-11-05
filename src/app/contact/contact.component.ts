@@ -32,7 +32,6 @@ export class ContactComponent implements OnInit {
 
   public sendMessage(): void
   {
-    console.log(this.form)
     let contact: Contact = new Contact(this.form.value.name, this.form.value.email, this.form.value.message)
 
     this.contactService.sendMessage(contact).subscribe(

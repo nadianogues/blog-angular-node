@@ -20,6 +20,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HeroComponent } from './hero/hero.component';
 import { BackgroundMenuComponent } from './background-menu/background-menu.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NewPostComponent } from './new-post/new-post.component';
     HeroComponent,
     BackgroundMenuComponent,
     NewPostComponent,
+    NewUserComponent,
   ],
   imports: [
     BrowserModule,

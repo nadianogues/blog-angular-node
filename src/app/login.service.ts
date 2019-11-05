@@ -36,4 +36,30 @@ export class LoginService implements OnInit {
         this.isLogged = false
         this.user = new User()
     }
+
+    public submitNewUser(): Observable<boolean>
+    {
+        console.log(this.user.name)
+        console.log(this.user.sername)
+        console.log(this.user.email)
+        console.log(this.user.password)
+        const body = new HttpParams()
+        .set('name', this.user.name)
+        .set('username', this.user.sername)
+        .set('email', this.user.email)
+        .set('password', this.user.password);
+
+    return this.http.post<User>("http://localhost:3000/new-user/",
+        body.toString(),
+        {
+            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        }
+    )
+    .pipe(
+        retry(1),
+        map( (answer: any) => {
+            return answer.error
+        })
+    )
+    }
 }
