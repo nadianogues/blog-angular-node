@@ -21,6 +21,9 @@ import { HeroComponent } from './hero/hero.component';
 import { BackgroundMenuComponent } from './background-menu/background-menu.component';
 import { NewPostComponent } from './new-post/new-post.component';
 
+// Pipe
+import { ReducedDescription } from './util/reduced.description.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +40,7 @@ import { NewPostComponent } from './new-post/new-post.component';
     HeroComponent,
     BackgroundMenuComponent,
     NewPostComponent,
+    ReducedDescription
   ],
   imports: [
     BrowserModule,

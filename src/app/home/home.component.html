@@ -1,8 +1,8 @@
 <app-hero></app-hero>
 <div class="format-post-item container">
-    <a [routerLink]="['/post', post.id]" *ngFor="let post of posts">
+    <a [routerLink]="['/post', post.id]" *ngFor="let post of posts" class="link-post">
         <post-item [author]="post.author" [date]="post.date" [title]="post.title" [comments]="post.numberComments">
-                {{post.content}}
+                {{ post.content | reducedDescription }}
         </post-item>
     </a>
 </div>
