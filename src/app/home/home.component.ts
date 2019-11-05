@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService} from '../posts.service'
 import { Post } from '../shared/post.model'
+import { User } from '../shared/user.model'
+import { LoginService } from '../login.service'
 
 
 @Component({
@@ -13,11 +15,12 @@ export class HomeComponent implements OnInit {
 
   public posts: Post[]
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService,
+              private loginService: LoginService) { }
 
   ngOnInit() {
     this.postsService.getLastTenPosts()
-      .then(( posts: Post[] ) => {
+      .subscribe(( posts: Post[] ) => {
         this.posts = posts
       })
   }

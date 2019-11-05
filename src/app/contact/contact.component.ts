@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service'
 import { FormGroup, FormControl } from '@angular/forms';
 import { ContactService } from "../contact.service"
 import { Contact } from '../shared/contact.model'
-
 
 @Component({
   selector: 'app-contact',
@@ -10,8 +10,8 @@ import { Contact } from '../shared/contact.model'
   styleUrls: ['./contact.component.scss'],
   providers: [ ContactService ]
 })
-export class ContactComponent implements OnInit {
 
+export class ContactComponent implements OnInit {
   public form:FormGroup = new FormGroup
   (
     {
@@ -28,7 +28,7 @@ export class ContactComponent implements OnInit {
       'message': new FormControl(null)
     }
   )
-  constructor(private contactService:ContactService){ }
+  constructor(private contactService:ContactService, private loginService: LoginService){ }
 
   public sendMessage(): void
   {

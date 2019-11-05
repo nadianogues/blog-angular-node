@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { LoginService } from '../login.service'
+import { User } from '../shared/user.model'
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +9,11 @@ import { Component, OnInit} from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(){ }
-  ngOnInit(){ }
+  constructor(private loginService: LoginService){ }
+
+  ngOnInit() { }
+
+  logout(): void{
+      this.loginService.logout()
+  }
 }
