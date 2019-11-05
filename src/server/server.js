@@ -132,6 +132,7 @@ app.post('/new-post/', (req, res) => {
     })
 })
 
+
 app.post('/new-user/', (req, res) => {
     let name = req.body.name
     let username = req.body.username
@@ -143,6 +144,19 @@ app.post('/new-user/', (req, res) => {
     connection.query(query, [name, username, email, password], function (error, results, fields) {
         if (error) throw error;
         res.json({error: false, message: "Added new user in databases"})
+    })
+})
+
+app.post('/comment/add/', (req, res) => {
+    let content = req.body.content
+    let userId = req.body.userId
+    let postId = req.body.postId
+
+    let query = "INSERT INTO comment(content, user_id, post_id, comment_date) VALUES(?, ?, ?, now())"
+
+    connection.query(query, [content, userId, postId], function (error, results, fields) {
+        if (error) throw error;
+        res.json({error: false, message: "Add new comment to a post"})
     })
 })
 

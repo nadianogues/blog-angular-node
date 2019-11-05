@@ -40,19 +40,20 @@ export class LoginComponent implements OnInit {
       }
    }
 
-  public tryToLogin(): void
-  {
-      this.loginService.login(this.login.value.username, this.login.value.password)
-      .subscribe(( user: User) => {
-          if(user === undefined){
-              alert("Failed to login! Username or password incorrect!")
-              return
-          };
-          
-          this.loginService.user = user
-          this.loginService.isLogged = true
-      })
-  }
+
+    public tryToLogin(): void
+    {
+        this.loginService.login(this.login.value.username, this.login.value.password)
+        .subscribe(( user: User) => {
+            if(user === undefined){
+                alert("Failed to login! Username or password incorrect!")
+                return
+            };
+            
+            this.loginService.user = user
+            this.loginService.isLogged = true
+        })
+    }
 
   ngOnInit() {}
 

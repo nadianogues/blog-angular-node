@@ -22,6 +22,9 @@ import { BackgroundMenuComponent } from './background-menu/background-menu.compo
 import { NewPostComponent } from './new-post/new-post.component';
 import { NewUserComponent } from './new-user/new-user.component';
 
+// Pipe
+import { ReducedDescription } from './util/reduced.description.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +42,7 @@ import { NewUserComponent } from './new-user/new-user.component';
     BackgroundMenuComponent,
     NewPostComponent,
     NewUserComponent,
+    ReducedDescription,
   ],
   imports: [
     BrowserModule,
