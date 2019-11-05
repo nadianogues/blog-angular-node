@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core'
 import { Post } from './shared/post.model'
+import { User } from './shared/user.model'
+import { LoginService } from './login.service'
 import { Comment } from './shared/comment.model'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { retry, map } from 'rxjs/operators';
 
 @Injectable()
 export class PostsService {
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient, private loginService: LoginService){}
 
     public getLastTenPosts(): Observable<Post[]> {
         /*
@@ -60,5 +62,29 @@ export class PostsService {
                     return answer.data  
                 })
             )
+    }
+
+    public sendMessage(post: Post): Observable<boolean>
+    {
+        console.log(post.title)
+        console.log(post.content)
+        console.log(this.loginService.user.id)
+        const body = new HttpParams()
+        .set('title', post.title)
+        .set('content', post.content)
+        .set('userId', this.loginService.user.id.toString());
+
+    return this.http.post<Post>("http://localhost:3000/new-post/",
+        body.toString(),
+        {
+            headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        }
+    )
+    .pipe(
+        retry(1),
+        map( (answer: any) => {
+            return answer.error
+        })
+    )
     }
 }

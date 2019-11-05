@@ -3,14 +3,14 @@
 <div class="container">
 	<div class="container-contact">
 		<div class="wrap-contact">
-			<form [formGroup]="formulario" (ngSubmit)="sendMessage()" class="contact-form validate-form">
+			<form [formGroup]="form" (ngSubmit)="sendMessage()" class="contact-form validate-form">
 				<span class="contact-form-title">
 					Contact Us
 				</span>
 
 				<label class="label-input" for="name">Tell us your name *</label>
 				<div class="wrap-input validate-input" data-validate="Type name">
-					<input formControlName="name" id="name" class="input" type="text" name="name" placeholder="Name">
+					<input formControlName="name" id="name" class="input" type="text" placeholder="Name">
 					<span class="focus-input"></span>
 				</div>
 

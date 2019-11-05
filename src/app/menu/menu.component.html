@@ -10,12 +10,15 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6">
+                    <div class="col-xl-8 col-lg-8">
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation" class="format-menu">
                                     <li class="format-item-menu">
                                         <a routerLink="/home" routerLinkActive="active" class="format-link">Posts</a>
+                                    </li>
+                                    <li class="format-item-menu">
+                                        <a routerLink="/new-post" routerLinkActive="active" class="format-link">New Post</a>
                                     </li>
                                     <li class="format-item-menu">
                                         <a routerLink="/about" routerLinkActive="active" class='format-link'>About</a>
@@ -27,7 +30,7 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                    <div class="col-xl-2 col-lg-2 d-none d-lg-block">
                         <div class="log_chat_area d-flex align-items-center">
                             <span class="text-logged" *ngIf="loginService.isLogged">
                                 {{ loginService.user.username }}
