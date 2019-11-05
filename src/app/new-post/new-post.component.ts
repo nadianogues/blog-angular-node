@@ -30,7 +30,6 @@ export class NewPostComponent implements OnInit {
 
   public sendMessage(): void
   {
-    console.log(this.formNewPost)
     let post: Post = new Post()
 
     post.title = this.formNewPost.value.postTitle

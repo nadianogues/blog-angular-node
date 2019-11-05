@@ -132,6 +132,21 @@ app.post('/new-post/', (req, res) => {
     })
 })
 
+
+app.post('/new-user/', (req, res) => {
+    let name = req.body.name
+    let username = req.body.username
+    let email = req.body.email
+    let password = req.body.password
+
+    let query = "INSERT INTO user (name, username, email, type, password) VALUES (?, ?, ?, 0, ?)"
+
+    connection.query(query, [name, username, email, password], function (error, results, fields) {
+        if (error) throw error;
+        res.json({error: false, message: "Added new user in databases"})
+    })
+})
+
 app.post('/comment/add/', (req, res) => {
     let content = req.body.content
     let userId = req.body.userId

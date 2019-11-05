@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-2 d-none d-lg-block">
-                        <div class="log_chat_area d-flex align-items-center">
+                        <div class="d-flex align-items-center">
                             <span class="text-logged" *ngIf="loginService.isLogged">
                                 {{ loginService.user.username }}
                             </span>
@@ -39,6 +39,9 @@
                             <ng-template #dontShowLogin>
                                 <button class="login popup-with-form format-link format-button-login" (click)="logout()">Logout</button>
                             </ng-template>
+                            <button class="button-image" onclick="document.getElementById('id02').style.display='block'">
+                                <img class="format-image-new-user" src="assets/images/new-user.png"/>
+                            </button>
                         </div>
                     </div>
                     <div class="col-12">
@@ -49,5 +52,6 @@
         </div>
     </div>
     <app-login *ngIf="!loginService.isLogged"></app-login>
+    <app-new-user></app-new-user>
 
 </header>

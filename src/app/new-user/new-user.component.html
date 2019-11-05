@@ -1,0 +1,23 @@
+<div id="id02" class="modal">
+		<form class="modal-content animate" [formGroup]="formNewUser" (ngSubmit)="submitNewUser()" novalidate>
+			<div class="imgcontainer">
+					<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+			</div>
+			<div class="container">
+				<label for="uname"><b>Name</b></label>
+				<input class="format-input-text" type="text" placeholder="Enter your name" formControlName="name" required>
+				
+				<label for="uname"><b>Username</b></label>
+				<input class="format-input-text" type="text" placeholder="Enter your username" formControlName="username" required>
+		
+				<label for="uname"><b>Email</b></label>
+				<input class="format-input-text" type="text" placeholder="Enter your email" formControlName="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input class = "format-input-password" type="password" placeholder="Enter your password" formControlName="password" required>
+				
+				<button class="format-button-login" type="submit">Submit</button>
+			</div>
+		</form>
+</div>
+	
