@@ -42,8 +42,6 @@ export class LoginComponent implements OnInit {
 
     public tryToLogin(): void
     {
-        //let contact: Contact = new Contact(this.formulario.value.name, this.formulario.value.email, this.formulario.value.message)
-
         this.loginService.login(this.login.value.username, this.login.value.password)
         .subscribe(( user: User) => {
             if(user === undefined){
