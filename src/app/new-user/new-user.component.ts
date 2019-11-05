@@ -43,7 +43,7 @@ export class NewUserComponent implements OnInit {
   public submitNewUser(): void
   {
       this.loginService.user.name = this.formNewUser.value.name
-      this.loginService.user.sername = this.formNewUser.value.username
+      this.loginService.user.username = this.formNewUser.value.username
       this.loginService.user.email = this.formNewUser.value.email
       this.loginService.user.password = this.formNewUser.value.password
 

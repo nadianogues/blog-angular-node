@@ -39,13 +39,9 @@ export class LoginService implements OnInit {
 
     public submitNewUser(): Observable<boolean>
     {
-        console.log(this.user.name)
-        console.log(this.user.sername)
-        console.log(this.user.email)
-        console.log(this.user.password)
         const body = new HttpParams()
         .set('name', this.user.name)
-        .set('username', this.user.sername)
+        .set('username', this.user.username)
         .set('email', this.user.email)
         .set('password', this.user.password);
 
