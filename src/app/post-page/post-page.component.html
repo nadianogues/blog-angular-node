@@ -6,7 +6,7 @@
 
 <div class="post-comments">
     <!-- TODO: display dynamically the name of the author based on user logged -->
-    <add-comment author="rodrigoamf"></add-comment>
+    <add-comment [author]="this.loginService.user.name" *ngIf="this.loginService.isLogged"></add-comment>
     <comment [author]="comment.author" [date]="comment.date" *ngFor="let comment of comments">
         {{ comment.content }}
     </comment>

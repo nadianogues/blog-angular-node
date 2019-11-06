@@ -86,6 +86,7 @@ app.get('/comments/:postId', (req, res) => {
         INNER JOIN user ON
             user.id = comment.user_id
         WHERE comment.post_id = ?
+        ORDER BY date DESC
     `
     connection.query(query, [parseInt(req.params['postId'])], function (error, results, fields) {
         if (error) throw error;

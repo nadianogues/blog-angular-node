@@ -11,9 +11,9 @@
         
     </div>
     <div class="add-comment-content">
-        <!-- <form>
-            <textarea (click)="clearTextArea($event)" (blur)="leftTextArea($event)" class="comment-textarea">Write a response...</textarea>
+        <form [formGroup]="addCommentForm" (ngSubmit)="addComment()" novalidate>
+            <textarea formControlName="comment" (click)="clearTextArea($event)" (blur)="leftTextArea($event)" class="comment-textarea">Write a response...</textarea>
             <button type="submit">Publish</button>
-        </form> -->
+        </form>
     </div>
 </div>
