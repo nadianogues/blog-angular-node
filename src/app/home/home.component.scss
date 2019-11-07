@@ -7,3 +7,39 @@
 .link-post{
     color: inherit;
 }
+
+.pagination-home{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.pagination-home ul{
+    justify-content: center;
+}
+
+.pagination-home ul li{
+    margin-right:1px;
+}
+
+.pagination-home ul li a:first-child{
+    border-color: #38a9ac;
+    border-style: solid;
+    border-width: 1px 0px 1px 1px;
+}
+
+.pagination-home ul li a{
+    color: #38a9ac;
+    padding: 15px 20px;
+    border: 1px solid #38a9ac;
+}
+
+.pagination-home ul li a:hover{
+    background: #38a9ac;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.active-pagination{
+    background: #38a9ac;
+    color: #fff !important;
+}

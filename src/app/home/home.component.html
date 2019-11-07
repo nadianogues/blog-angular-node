@@ -6,3 +6,8 @@
         </post-item>
     </a>
 </div>
+<div class="pagination-home">
+    <ul class="pagination">
+      <li class="page-item"><a [routerLink]="['/home', page]" routerLinkActive="active-pagination" *ngFor="let page of pages">{{page}}</a></li>
+    </ul>
+</div>
