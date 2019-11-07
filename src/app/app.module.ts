@@ -21,10 +21,11 @@ import { HeroComponent } from './hero/hero.component';
 import { BackgroundMenuComponent } from './background-menu/background-menu.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 // Pipe
 import { ReducedDescription } from './util/reduced.description.pipe';
-import { PaginationComponent } from './pagination/pagination.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +45,6 @@ import { PaginationComponent } from './pagination/pagination.component';
     NewPostComponent,
     NewUserComponent,
     ReducedDescription,
-    PaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +52,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([]),
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot(),
   ],
   providers: [ LoginService ],
   bootstrap: [AppComponent]

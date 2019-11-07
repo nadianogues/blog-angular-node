@@ -11,7 +11,5 @@
             <div class="post-meta-date">{{date}}</div>
         </div>
     </div>
-    <div class="post-content">
-        <ng-content></ng-content>
-    </div>
+    <div class="post-content" [froalaView]="content"></div>
 </div>

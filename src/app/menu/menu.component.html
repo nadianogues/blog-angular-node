@@ -18,13 +18,13 @@
                                         <a routerLink="/home" routerLinkActive="active" class="format-link">Posts</a>
                                     </li>
                                     <li class="format-item-menu">
-                                        <a routerLink="/new-post" routerLinkActive="active" class="format-link">New Post</a>
-                                    </li>
-                                    <li class="format-item-menu">
                                         <a routerLink="/about" routerLinkActive="active" class='format-link'>About</a>
                                     </li>
                                     <li class="format-item-menu">
                                         <a routerLink="/contact" routerLinkActive="active" class='format-link'>Contact</a>
+                                    </li>
+                                    <li class="format-item-menu" *ngIf="this.loginService.isLogged && this.loginService.user.type == 1">
+                                        <a routerLink="/new-post" routerLinkActive="active" class="format-link">New Post</a>
                                     </li>
                                 </ul>
                             </nav>
