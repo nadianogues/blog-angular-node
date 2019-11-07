@@ -12,14 +12,14 @@ export class PostsService {
 
     constructor(private http: HttpClient, private loginService: LoginService){}
 
-    public getLastTenPosts(): Observable<Post[]> {
+    public getPosts(limit: number): Observable<Post[]> {
         /*
-            Get data from the last ten posts on the database
+            Get ten posts starting by (limit*10)-10 index
 
             Return:
                 Observable with a list with ten post objects
         */
-        return this.http.get<Post[]>("http://localhost:3000/posts/10")
+        return this.http.get<Post[]>("http://localhost:3000/posts/" + limit)
             .pipe(
                 retry(1),
                 map((answer: any) => {
@@ -28,6 +28,16 @@ export class PostsService {
             )
     }
 
+    public getNumberOfPosts(): Observable<number> {
+        return this.http.get<number>("http://localhost:3000/number_posts/")
+            .pipe(
+                retry(1),
+                map((answer: any) => {
+                    return answer.data  
+                })
+            )
+    }
+ 
     public getPost(id: number): Observable<Post> {
         /*
             Get data from a post with a specific id from post table on the database

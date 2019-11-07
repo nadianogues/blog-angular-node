@@ -30,11 +30,14 @@ app.use(function(req, res, next) {
   });
 
 // Define API response routes
-app.get('/posts/:numberPosts', (req, res) => {
+app.get('/posts/:limit', (req, res) => {
     /*
         Define a route for the API who returns N posts
         ordered by post_date in ascending order
     */
+    let upper_limit = 10 * parseInt(req.params['limit'])
+    let lower_limit = upper_limit - 10
+    
     let query = `
         SELECT p.id, p.user_id, p.title, p.body as content, date_format(p.post_date, '%M %d %Y, %H:%i') as date, u.name as author, 
         (
@@ -45,12 +48,26 @@ app.get('/posts/:numberPosts', (req, res) => {
         ) as numberComments
         FROM post p
         INNER JOIN user u ON u.id = p.user_id
-        ORDER BY post_date DESC LIMIT ?
+        ORDER BY post_date DESC LIMIT ?, ?
     `
-    connection.query(query, [parseInt(req.params['numberPosts'])], function (error, results, fields) {
+    connection.query(query, [lower_limit, upper_limit], function (error, results, fields) {
         if (error) throw error;
         // Connected without erros
         res.json({error: false, message: `List with ${req.params['numberPosts']} post(s)`, data: results})
+    })
+})
+
+app.get('/number_posts/', (req, res) => {
+    /*
+        Define a route for the API who returns the number of posts
+        in the post table
+    */
+    let query = `SELECT COUNT(*) as number_posts FROM post`
+
+    connection.query(query, function (error, results, fields) {
+        if (error) throw error;
+        // Connected without erros
+        res.json({error: false, message: `Number of posts`, data: results[0].number_posts})
     })
 })
 

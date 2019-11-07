@@ -24,6 +24,7 @@ import { NewUserComponent } from './new-user/new-user.component';
 
 // Pipe
 import { ReducedDescription } from './util/reduced.description.pipe';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ReducedDescription } from './util/reduced.description.pipe';
     NewPostComponent,
     NewUserComponent,
     ReducedDescription,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

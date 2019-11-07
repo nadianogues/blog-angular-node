@@ -5,11 +5,17 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { PaginationComponent } from './pagination/pagination.component'
 
 const routes: Routes = 
 [
   {
     path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'home/:id',
     component: HomeComponent
   },
   {
