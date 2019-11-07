@@ -54,13 +54,8 @@ export class AddCommentComponent implements OnInit {
         (error:boolean)=>{
           if(!error){
             this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-                this.router.navigate(['/post/', 11]);
-            }); 
-            /*this.router.navigate(['/post/', 10]).then(nav => {
-              console.log(nav); // true if navigation is successful
-            }, err => {
-              console.log(err) // when there's an error
-            });*/
+                this.router.navigate(['/post/', postId]);
+            });
           } else {
             alert("Failed to add comment")
           }
