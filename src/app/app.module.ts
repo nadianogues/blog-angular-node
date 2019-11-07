@@ -22,10 +22,11 @@ import { BackgroundMenuComponent } from './background-menu/background-menu.compo
 import { NewPostComponent } from './new-post/new-post.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { PaginationComponent } from './pagination/pagination.component';
 
 // Pipe
 import { ReducedDescription } from './util/reduced.description.pipe';
-import { PaginationComponent } from './pagination/pagination.component';
+
 
 @NgModule({
   declarations: [
